@@ -1,15 +1,21 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from django.template import loader
 
 
 def index(request):
-    return HttpResponse("indice")
+    template = loader.get_template('index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 def about(request):
-    return HttpResponse("acerca")
+    template = loader.get_template('about.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 def welcome(request):
-    response = "bienvenido cliente"
-    return HttpResponse(response)
+    template = loader.get_template('welcome.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
