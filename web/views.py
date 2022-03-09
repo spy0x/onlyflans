@@ -5,11 +5,14 @@ from django.template import loader
 
 
 def index(request):
-    return render(request, 'index.html')
+    context = {'titulo': 'HOME', 'contenido' : 'indice'}
+    return render(request, 'base.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    context = {'titulo': 'ABOUT', 'contenido' : 'acerca'}
+    return render(request, 'base.html', context)
 
 def welcome(request):
-    return render(request, 'welcome.html')
+    context = {'titulo': 'WELCOME', 'contenido' : 'bienvenido cliente'}
+    return render(request, 'base.html', context)
 
