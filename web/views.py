@@ -5,17 +5,11 @@ from django.template import loader
 
 
 def index(request):
-    template = loader.get_template('index.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+    return render(request, 'index.html')
 
 def about(request):
-    template = loader.get_template('about.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+    return render(request, 'about.html')
 
 def welcome(request):
-    template = loader.get_template('welcome.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
+    return render(request, 'welcome.html')
 
