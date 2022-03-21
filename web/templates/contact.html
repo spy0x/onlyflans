@@ -1,4 +1,13 @@
+
 {% extends 'base.html' %}
 {% block 'content' %}
-<article class="container text-start text-white">{{contenido}}</article>
+
+<div class="container text-center text-white">
+    <article class="container text-start text-white">{{contenido}}</article>
+    <form action="/contacto" method="post">
+        {%csrf_token%}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
 {% endblock %}

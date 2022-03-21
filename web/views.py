@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import Flan
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from .forms import ContactFormForm
 
 
 def index(request):
@@ -17,8 +18,20 @@ def about(request):
     return render(request, 'about.html', context)
 
 def contact(request):
-    context = {'contenido' : 'contacto'}
+    if request.method == 'POST':
+        form = ContactFormForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/exito')
+    else:
+        form = ContactFormForm()
+    context = {
+        'contenido' : 'contacto',
+        'form' : form}
     return render(request, 'contact.html', context)
+
+def success(request):
+    context = {'contenido' : 'Gracias por contactarte con OnlyFlans, te responderemos en breve'}
+    return render(request, 'success.html', context)
 
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
