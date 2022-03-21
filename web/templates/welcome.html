@@ -1,4 +1,29 @@
 {% extends 'base.html' %}
 {% block 'content' %}
-<article class="container text-start">{{contenido}}</article>
+<article class="container text-start text-white">{{contenido}}</article>
+<section class="container-xl bg-dark py-3" id="about">
+    <div class="text-center text-white"> 
+      <i class="me-3 fa-solid fa-utensils fa-2x"></i>     
+      <h1 class="section_title fw-bold d-inline-block">Flanes Privados</h1>
+      <i class="ms-3 fa-solid fa-utensils fa-2x"></i>
+      <hr class="border-top border-2 border-light w-75 mx-auto mt-0 mb-3 opacity-25">
+    </div>
+    <div class="row">
+{% if lista_flanes_privados %}
+    {% for flan in lista_flanes_privados %}
+        <div class="col-12 col-md-3 col-lg-3 text-white mb-2">
+            <div class="card bg-dark">
+                <img src="{{flan.image_url}}" class="card-img" alt="...">
+                <div class="card-img-overlay bg-black" style="--bs-bg-opacity: .5;">
+                    <h5 class="card-title">{{flan.name}}</h5>
+                    <p class="card-text text-wrap">{{flan.description}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+      <p>No hay flanes disponibles</p>
+{% endif %}
+    </div>
+</section>
 {% endblock %}
