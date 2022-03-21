@@ -16,6 +16,10 @@ def about(request):
     context = {'contenido' : 'acerca'}
     return render(request, 'about.html', context)
 
+def contact(request):
+    context = {'contenido' : 'contacto'}
+    return render(request, 'contact.html', context)
+
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
     context = {
