@@ -1,15 +1,15 @@
 from django.shortcuts import render
-from .models import Flan
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .forms import ContactFormForm
+from .models import Flan, ContactForm
 
 
 def index(request):
     flanes_publicos = Flan.objects.filter(is_private=False)
     context = {
-        'contenido' : 'indice',
+        'contenido' : 'Índice',
         'lista_flanes_publicos' : flanes_publicos}
     return render(request, 'index.html', context)
 
@@ -21,6 +21,7 @@ def contact(request):
     if request.method == 'POST':
         form = ContactFormForm(request.POST)
         if form.is_valid():
+            contact_form = ContactForm.objects.create(**form.cleaned_data)
             return HttpResponseRedirect('/exito')
     else:
         form = ContactFormForm()
@@ -36,7 +37,7 @@ def success(request):
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
     context = {
-        'contenido' : 'bienvenido cliente',
+        'contenido' : 'Bienvenido cliente',
         'lista_flanes_privados' : flanes_privados}
     return render(request, 'welcome.html', context)
 
