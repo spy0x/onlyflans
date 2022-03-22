@@ -14,7 +14,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 def about(request):
-    context = {'contenido' : 'acerca'}
+    context = {'contenido' : 'Acerca'}
     return render(request, 'about.html', context)
 
 def contact(request):
@@ -26,7 +26,7 @@ def contact(request):
     else:
         form = ContactFormForm()
     context = {
-        'contenido' : 'contacto',
+        'contenido' : 'Contacto',
         'form' : form}
     return render(request, 'contact.html', context)
 
@@ -37,7 +37,7 @@ def success(request):
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
     context = {
-        'contenido' : 'Bienvenido cliente',
+        'contenido' : 'Bienvenido Cliente',
         'lista_flanes_privados' : flanes_privados}
     return render(request, 'welcome.html', context)
 
