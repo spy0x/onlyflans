@@ -9,3 +9,10 @@ body {
 .navbar_bg{
     background-color: rgb(47, 1, 1);
 }
+.footer_credits {
+    font-family: 'Hubballi', cursive;
+}
+
+.footer_copyright {
+    font-family: 'Oswald', sans-serif;
+}
