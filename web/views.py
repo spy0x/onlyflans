@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import ContactFormModelForm
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -19,12 +20,12 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactFormForm(request.POST)
+        form = ContactFormModelForm(request.POST)
         if form.is_valid():
             contact_form = ContactForm.objects.create(**form.cleaned_data)
             return HttpResponseRedirect('/exito')
     else:
-        form = ContactFormForm()
+        form = ContactFormModelForm()
     context = {
         'contenido' : 'Contacto',
         'form' : form}

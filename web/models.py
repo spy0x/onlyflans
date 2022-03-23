@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 import uuid
 
 class Flan(models.Model):
@@ -11,9 +12,14 @@ class Flan(models.Model):
 
     def __str__(self):
         return self.name
+
 class ContactForm(models.Model):
     contact_form_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     customer_email = models.EmailField(default=None)
     customer_name = models.CharField(max_length=64)
     message = models.TextField(default=None)
-    
+
+class ContactFormModelForm(ModelForm):
+    class Meta:
+        model = ContactForm
+        fields = ['customer_email', 'customer_name', 'message']
