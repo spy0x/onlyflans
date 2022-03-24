@@ -35,6 +35,17 @@
             </div>
         </div>
         <div class="text-center text-white mt-3">
+            <label for="{{ form.customer_birthday.id_for_label }}" class="form-label"> 
+                {{ form.customer_birthday.label_tag}}
+            </label>
+            <div>
+                {{ form.customer_birthday }}
+            </div>
+            <div class="text-danger d-flex justify-content-center">
+                {{ form.customer_birthday.errors}}
+            </div>
+        </div>
+        <div class="text-center text-white mt-3">
             <label for="{{ form.message.id_for_label }}" class="form-label"> 
                 {{ form.message.label_tag}}
             </label>

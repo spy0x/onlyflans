@@ -24,6 +24,9 @@
               <a class="nav-link" href="{% url 'about' %}">Acerca</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'afiliados' %}">Afiliados</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
             </li>
             {% if not user.is_authenticated %}

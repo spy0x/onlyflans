@@ -44,3 +44,6 @@ def welcome(request):
         'lista_flanes_privados' : flanes_privados}
     return render(request, 'welcome.html', context)
 
+def afiliados(request):
+    context = {'contenido' : 'Afiliados'}
+    return render(request, 'afiliados.html', context)
