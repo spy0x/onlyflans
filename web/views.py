@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .forms import ContactFormForm
 from .models import Flan, ContactForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -35,6 +36,7 @@ def success(request):
     context = {'contenido' : 'Gracias por contactarte con OnlyFlans, te responderemos en breve'}
     return render(request, 'success.html', context)
 
+@login_required
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
     context = {
