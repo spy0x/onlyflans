@@ -30,12 +30,12 @@
               <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
             </li>
             {% if not user.is_authenticated %}
-            <li class="nav-item ms-5">
-              <a class="nav-link btn btn-outline-danger login_text" href="{% url 'login' %}">Iniciar Sesión</a>
+            <li class="nav-item mx-auto ms-md-5">
+              <a class="nav-link btn btn-outline-danger login_text p-2" href="{% url 'login' %}">Iniciar Sesión</a>
             </li>
             {% else %}
-            <li class="nav-item ms-5">
-              <a class="nav-link btn btn-outline-danger login_text" href="{% url 'logout' %}">Cerrar Sesión</a>
+            <li class="nav-item mx-auto ms-md-5">
+              <a class="nav-link btn btn-outline-danger login_text p-2" href="{% url 'logout' %}">Cerrar Sesión</a>
             </li>
             {% endif %}
           </ul>
