@@ -1,17 +1,26 @@
 body {
-    background-color: #17191a;
+    background-color: rgb(10,12,11);
     margin: 0px;
     padding: 0px;
 }
 .header_bg{
-    background-color: rgb(14, 0, 29);
+    background-color: rgb(47,19,15);
 }
 .navbar_bg{
-    background-color: rgb(47, 1, 1);
+    background-color: rgb(100,28,4);
 }
 .footer_credits {
     font-family: 'Hubballi', cursive;
 }
 .login_text {
     font-family: 'Hubballi', cursive;
+}
+.body_bg{
+    background-color: rgb(36,37,41);
+}
+.footer_bg{
+    background-color: rgb(100,28,4);    
+}
+.texto_body {
+    color: rgb(227,222,223);
 }

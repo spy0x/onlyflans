@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block 'content' %}
-<section class="container-xl text-center text-white p-3">
+<section class="container-xl text-center texto_body p-3">
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-<div class="card bg-dark pt-3">
-    <div class="text-center text-white"> 
+<div class="card body_bg pt-3">
+    <div class="text-center texto_body"> 
       <i class="me-3 fa-solid fa-users fa-2x"></i>     
       <h1 class="section_title fw-bold d-inline-block">Inicio de Sesión</h1>
       <i class="ms-3 fa-solid fa-users fa-2x"></i>
-      <hr class="border-top border-2 border-light w-75 mx-auto mt-0 mb-3 opacity-25">
     </div>
     {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
