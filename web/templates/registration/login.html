@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+<section class="container-xl text-center texto_body p-3">
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<div class="card body_bg pt-3">
+    <div class="text-center texto_body"> 
+      <i class="me-3 fa-solid fa-users fa-2x"></i>     
+      <h1 class="section_title fw-bold d-inline-block">Inicio de Sesión</h1>
+      <i class="ms-3 fa-solid fa-users fa-2x"></i>
+    </div>
+    {% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  
+  {% if next %}
+      {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+      {% else %}
+      <p>Please login to see this page.</p>
+      {% endif %}
+  {% endif %}
+  <div class="m-3">
+    <!-- <td>{{ form.username.label_tag }}</td> -->
+    <td>Usuario:</td>
+    <td>{{ form.username }}</td>
+  </div>
+  <div class="m-3">
+    <!-- <td>{{ form.password.label_tag }}</td> -->
+    <td>Contraseña:</td>
+    <td>{{ form.password }}</td>
+  </div>
+  <div class="p-3">
+    <input type="submit" value="Iniciar Sesión" class="btn btn-danger bg-opacity-50"/>
+    <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+  {# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</div>
+</form>
+
+
+</section>
+{% endblock %}
