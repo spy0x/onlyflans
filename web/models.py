@@ -13,6 +13,16 @@ class Flan(models.Model):
 
     def __str__(self):
         return self.name
+        
+class Recipe(models.Model):
+    receta_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=64)
+    description = models.TextField(default=None)
+    image_url = models.URLField(default=None)
+    page_url = models.URLField(default=None)
+
+    def __str__(self):
+        return self.title
 
 class ContactForm(models.Model):
     contact_form_uuid = models.UUIDField(default=uuid.uuid4, editable=False)

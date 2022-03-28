@@ -4,7 +4,7 @@ from .models import ContactFormModelForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .forms import ContactFormForm
-from .models import Flan, ContactForm
+from .models import Flan, ContactForm, Recipe
 from django.contrib.auth.decorators import login_required
 
 
@@ -44,6 +44,10 @@ def welcome(request):
         'lista_flanes_privados' : flanes_privados}
     return render(request, 'welcome.html', context)
 
-def afiliados(request):
-    context = {'contenido' : 'Afiliados'}
-    return render(request, 'afiliados.html', context)
+def recetas(request):
+    lista_recetas = Recipe.objects.all()
+    context = {
+        'contenido' : 'Recetas',
+        'lista_recetas' : lista_recetas,
+    }
+    return render(request, 'recetas.html', context)

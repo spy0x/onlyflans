@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+<section class="container-xl py-3" id="recetas">
+  <div class="card body_bg pt-3">
+    <div class="text-center texto_body"> 
+      <i class="me-3 fa-solid fa-share-nodes fa-2x"></i>     
+      <h1 class="section_title fw-bold d-inline-block">{{contenido}}</h1>
+      <i class="ms-3 fa-solid fa-share-nodes fa-2x"></i>
+    </div>
+    {% if lista_recetas %}
+        {% for receta in lista_recetas %}
+
+      <div class="card bg-dark m-auto my-3" style="width: 85%;">
+        <div class="card-header recipestitle_bg texto_body">
+          Receta
+        </div>
+        <div class="row g-0">
+          <div class="col-2 d-none d-md-block">
+            <img src="{{ receta.image_url }}" class="img-fluid rounded-start" alt="..." style="height: 12rem; width: 12rem;">
+          </div>
+          <div class="col-10 card-body recipes_bg texto_body">
+            <h5 class="card-title">{{ receta.title }}</h5>
+            <p class="card-text">{{ receta.description }}</p>
+            <a href="{{receta.page_url}}" target="_blank" class="btn btn-danger">Ir a la receta</a>
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
